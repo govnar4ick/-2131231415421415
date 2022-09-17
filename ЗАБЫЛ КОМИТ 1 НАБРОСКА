@@ -21,9 +21,9 @@ def start_pos_alphabet():
         shift_x += 50
         count += 1
 
-    if (count ==8):
-        shift_x = count = 0
-        shift_y -= 50
+        if (count ==8):
+            shift_x = count = 0
+            shift_y -= 50
 
 
 window = Tk()
