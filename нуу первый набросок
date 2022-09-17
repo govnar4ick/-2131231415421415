@@ -1,0 +1,40 @@
+from tkinter import*
+
+WINDOW_WIDHT = 1200
+WINDOW_HEIGHT = 800
+MARGIN = 100
+BG_COLOR = "#FFF6BF"
+BTN_CONTROL = "white"
+TXT_COLOR = "black"
+
+def start_pos_man():
+    line_1 = canvas.create_line(MARGIN,WINDOW_HEIGHT - MARGIN,MARGIN,MARGIN,width=4)
+    line_2 = canvas.create_line(MARGIN,MARGIN, WINDOW_WIDHT // 3, MARGIN, width = 4)
+    line_3 = canvas.create_line(WINDOW_WIDHT//3, MARGIN, WINDOW_WIDHT//3,MARGIN*2, width=4)
+def start_pos_alphabet():
+    shift_x = shift_y=0
+    count = 0
+
+    for c in range(ord('А'), ord('Я') + 1):
+        btn = Button(text=chr(c), bg =BTN_CONTROL, foreground = TXT_COLOR,font = 'Arial 16')
+        btn.place(x=WINDOW_HEIGHT- MARGIN*2 + shift_x, y = MARGIN*4.5 - shift_y)
+        shift_x += 50
+        count += 1
+
+    if (count ==8):
+        shift_x = count = 0
+        shift_y -= 50
+
+
+window = Tk()
+window.title('Виселица')
+window.resizable(False,False)
+
+canvas = Canvas(window, bg=BG_COLOR,height=WINDOW_HEIGHT,width=WINDOW_WIDHT)
+canvas.place(x=0,y=0)
+
+window.geometry('1200x800')
+
+start_pos_man()
+start_pos_alphabet()
+window.mainloop()
